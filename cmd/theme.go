@@ -103,5 +103,6 @@ func init() {
 		versionCmd,
 		updateCmd,
 		openCmd,
+		newCmd,
 	)
 }
