@@ -1,6 +1,8 @@
-hash: 76caea347948c9ff0888c3e4e355f1928e47338a3e5e329aa61314eb155bec18
-updated: 2017-07-31T21:59:40.555483879-04:00
+hash: 6e3b5e3b91416fbe59a8708939abd8ad21ac62c2f879a8c735a3b2120f3f60df
+updated: 2017-11-09T13:01:34.251328-05:00
 imports:
+- name: github.com/AlecAivazis/survey
+  version: 344ec26ea976135df7508f1f513e5490a4686e11
 - name: github.com/aws/aws-sdk-go
   version: df374c20d53ed082b8cf0d0da52b1a181abf387b
   subpackages:
@@ -58,6 +60,8 @@ imports:
 - name: github.com/mattn/go-isatty
   version: 57fdcb988a5c543893cc61bce354a6e24ab70022
   repo: https://github.com/mattn/go-isatty
+- name: github.com/mgutz/ansi
+  version: 9520e82c474b0a04dd04f8a40959027271bab992
 - name: github.com/ryanuber/go-glob
   version: 572520ed46dbddaed19ea3d9541bdd0494163693
 - name: github.com/skratchdot/open-golang
@@ -87,6 +91,11 @@ imports:
   repo: https://go.googlesource.com/sys
   subpackages:
   - unix
+- name: gopkg.in/AlecAivazis/survey.v1
+  version: 344ec26ea976135df7508f1f513e5490a4686e11
+  subpackages:
+  - core
+  - terminal
 - name: gopkg.in/yaml.v1
   version: 9f9df34309c04878acc86042b16630b0f696e1de
 testImports:

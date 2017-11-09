@@ -2,10 +2,10 @@ package cmd
 
 import (
 	"fmt"
-	"os"
+
+	"github.com/Shopify/themekit/cmd/forms"
 
 	"github.com/spf13/cobra"
-	"github.com/tcnksm/go-input"
 )
 
 var newCmd = &cobra.Command{
@@ -13,29 +13,33 @@ var newCmd = &cobra.Command{
 	Short: "",
 	Long:  ``,
 	RunE: func(cmd *cobra.Command, args []string) error {
-
-		ui := &input.UI{Writer: os.Stdout, Reader: os.Stdin}
-
-		shopDomain, err := ui.Ask("Shop Domain", &input.Options{
-			Required:  true,
-			Loop:      true,
-			HideOrder: true,
-		})
+		auth, err := forms.RequestAuthDetails()
 		if err != nil {
 			return err
 		}
 
-		password, err := ui.Ask("Password", &input.Options{
-			Required:  true,
-			Loop:      true,
-			Mask:      true,
-			HideOrder: true,
-		})
+		fmt.Printf(
+			"Check Auth\nDomain:%s\nLogin:%s\nPass:%s\n",
+			auth.Domain,
+			auth.Login,
+			auth.Password,
+		)
+
+		action, err := forms.RequestAction(
+			[]string{"timber1", "brooklyn"},
+			[]string{"Timber", "Brooklyn"},
+		)
 		if err != nil {
 			return err
 		}
 
-		fmt.Println("output:", shopDomain, password)
+		fmt.Printf(
+			"Theme Action\ntheme:%s\nduplicate:%v\nname:%s\n",
+			action.Theme,
+			action.Duplicate,
+			action.Name,
+		)
+
 		return nil
 	},
 }
